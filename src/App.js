@@ -1,12 +1,35 @@
 import React from 'react';
+import LangContext from "./context/lang";
+import Routes from "./components/router/routes";
 
-import './App.css';
+class App extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            changeLanguage: false
+        };
+    }
 
-function App() {
-    return ( <div className = "App" >
+    changeLang = () => {
+      const language = localStorage.getItem('curLang');
+      if (!language || language === 'en') {
+          localStorage.setItem('curLang', 'he');
+      }else {
+          localStorage.setItem('curLang', 'en');
+      }
+      this.setState({changeLanguage:!this.state.changeLanguage})
+    };
+    render() {
+        return (
 
-        </div>
-    );
+            <LangContext.Provider value={{language: (localStorage.getItem('curLang') || 'en'), changeLang: this.changeLang}}>
+                <Routes/>
+            </LangContext.Provider>
+
+        );
+    }
+
+
 }
 
 export default App;

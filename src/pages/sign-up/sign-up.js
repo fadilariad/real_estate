@@ -12,4 +12,4 @@ class SignUp extends React.Component{
     }
 }
 
-export default SighUp;
+export default SignUp;
