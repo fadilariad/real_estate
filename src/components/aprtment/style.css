@@ -1,0 +1,23 @@
+.apartment-title {
+    font-weight: bold;
+    color: white;
+    top: 20px;
+    left: 10px;
+}
+
+.apartment-price {
+    color: white;
+    bottom: 15px;
+    left: 10px;
+    font-weight: bold;
+}
+
+.card-animation{
+    animation: fade-in 1s ;
+    animation-fill-mode: both;
+
+}
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

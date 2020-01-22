@@ -1,12 +1,8 @@
 export  const headerData = {
     en:[
         {
-            label:'Buy',
-            href:'/buy'
-        },
-        {
-            label:'Rent',
-            href:'/rent'
+            label:'Apartments',
+            href:'/apartments/page/'
         },
         {
             label:'About us',
@@ -24,14 +20,11 @@ export  const headerData = {
     ],
     he:[
         {
-            label:'קניה',
-            href:'/buy'
+            label:'דירות',
+            href:'/apartments/page/'
 
         },
-        {
-            label:'השכרה',
-            href:'/rent'
-        },
+
         {
             label:'מי אנחנו',
             href:'/about-us'

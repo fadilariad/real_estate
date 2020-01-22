@@ -1,23 +1,45 @@
 import React from "react";
+import LangContext,{AppLang} from "../../context/lang";
 import {Table} from "react-bootstrap";
+import {data} from "./data";
 
 
-function ApartmentDetailsTable  (props){
-    return  <Table>
-        <thead className={'text-center'}>
-        <tr>
-            {['Rooms','Beds','Sqft','Position'].map((data,i) => {
-                return <th key={i}>{data}</th>
-            })}
-        </tr>
-        </thead>
-        <tbody className={'text-center'}>
-        <tr>
-            {['number_of_rooms','number_of_beds','sqft'].map((feild,i) => {
-                return <td>{props.data[feild] ?props.data[feild] :'Not Aviable'}</td>
-            })}
-            <td>{props.data.for_sale && 'Sale'}{props.data.for_rent && ' Rent '}{!props.data.for_rent && !props.data.for_sale && 'Not Avaible'}</td>
-        </tr>
-        </tbody>
-    </Table>
-};
+class ApartmentDetailsTable extends React.Component{
+
+    render() {
+
+
+        return (
+            <LangContext.Consumer>
+                {
+                    ({language}) => {
+                        const currentLang = AppLang[language];
+                        const style = {direction: currentLang.dir};
+                        const curData = data[language];
+                        return (
+                            <Table style={style}>
+                                <thead className={'text-center'}>
+                                <tr>
+                                    {[curData.rooms, curData.baths, curData.sqft, curData.status, curData.price].map((data, i) => {
+                                        return <th key={i}>{data}</th>
+                                    })}
+                                </tr>
+                                </thead>
+                                <tbody className={'text-center'}>
+                                <tr>
+                                    {[this.props.rooms, this.props.baths, this.props.sqft,curData[this.props.status], this.props.price].map((feild, i) => {
+                                        return <td key={i}>{feild ? feild : 'Not Available'}</td>
+                                    })}
+                                </tr>
+                                </tbody>
+                            </Table>
+                        );
+                    }
+                }
+
+            </LangContext.Consumer>
+        );
+    }
+}
+
+export default ApartmentDetailsTable;

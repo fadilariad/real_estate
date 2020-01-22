@@ -13,7 +13,7 @@ class HeaderNavBar extends React.Component{
         return (
             <LangContext.Consumer>
                 {
-                    ({language,changeLang}) => {
+                    ({language}) => {
                         const currentLang = AppLang[language];
                         const {location} = this.props;
                         const style = {direction:currentLang.dir};
@@ -26,7 +26,7 @@ class HeaderNavBar extends React.Component{
                                         <Navbar.Collapse id="header-nav-bar">
                                             <Nav className='align-items-stretch w-100'  activeKey={location.pathname}>
                                                 {headerData[currentLang.label].map((link,i) => {
-                                                    return <Nav.Link href={link.href} key={i}>{link.label}</Nav.Link>
+                                                    return <Nav.Link  href={link.href} key={i}>{link.label}</Nav.Link>
                                                 })}
                                             </Nav>
                                             <ChangeLang/>
