@@ -2,7 +2,7 @@ import React from "react";
 import LangContext,{AppLang} from "../../context/lang";
 import {Carousel, Container, Tab, Tabs, Row,  Spinner} from "react-bootstrap";
 import ApartmentsApi from "../../api/apartments";
-import {data} from './data';
+import {data} from '../../locals/translate/data';
 import ApartmentDetailsTable from "../../components/aprtment/apartment-details";
 
 class ApartmentPage extends React.Component{

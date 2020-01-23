@@ -2,7 +2,7 @@ import React from "react";
 import {withRouter} from "react-router";
 import LangContext,{AppLang} from "../../context/lang";
 import {Button, Card, Col} from "react-bootstrap";
-import {data} from "./data";
+import {data} from "../../locals/translate/data";
 import './style.css';
 
 
