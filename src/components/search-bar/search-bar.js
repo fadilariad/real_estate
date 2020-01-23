@@ -1,7 +1,7 @@
 import React from "react";
 import {withRouter} from 'react-router-dom';
 import LangContext,{AppLang} from "../../context/lang";
-import {data} from "./data";
+import {data} from "../../locals/translate/data";
 import {Col, Row, Form, Button} from "react-bootstrap";
 import ApartmentsApi from "../../api/apartments";
 
@@ -9,37 +9,53 @@ class SearchBar extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            inputs:{
+                city:'',
+                minPrice:'',
+                maxPrice:'',
+                numRoom:'',
+                numBath:'',
+                status:'',
+                sqft:''
+            },
             saleStatus:'',
             cities:'',
-            city:'',
-            minPrice:'',
-            maxPrice:'',
-            numRoom:'',
-            numBath:'',
-            saleStatusVal:'',
-            sqft:''
+
         }
     }
     componentDidMount() {
         let {search} = this.props.location;
         search = new URLSearchParams(search);
         this.setState({
-            city:search.get('city'),
-            minPrice:search.get('minPrice'),
-            maxPrice:search.get('maxPrice'),
-            numRoom:search.get('numRooms'),
-            numBath:search.get('numBath'),
-            saleStatusVal:search.get('status'),
-            sqft:search.get('sqft')
+            inputs:{
+                city:+search.get('city'),
+                minPrice:+search.get('minPrice'),
+                maxPrice:search.get('maxPrice'),
+                numRoom:+search.get('numRoom'),
+                numBath:+search.get('numBath'),
+                status:search.get('status'),
+                sqft:search.get('sqft')
+            }
         });
         ApartmentsApi.get()
     }
+    handelInputChanges=(e)=>{
+        const {name,value} = e.target;
+        this.setState({
+            inputs:{
+                ...this.state.inputs,
+                [name]:value
+            }
+        })
+    };
 
     render() {
 
-        const {saleStatus,cities,city,minPrice,maxPrice,numRoom,numBath,sqft,saleStatusVal} = this.state;
+        const {saleStatus,cities} = this.state;
+        const {city,minPrice,maxPrice,numRoom,numBath,sqft,status} = this.state.inputs;
+        console.log(this.state.inputs)
         const optionsNum = [1,2,3,4,5].map((data,i) => {
-            return <option key={i} value={data}>{`${data}+`}</option>
+            return <option key={i}  value={data}>{`${data}+`}</option>
         });
         return (
             <LangContext.Consumer>
@@ -53,43 +69,43 @@ class SearchBar extends React.Component{
                                 <Row  style={style}  className={'p-3 justify-content-around'}>
                                     <Col xs={12}  className={'d-flex text-center'}>
                                         <Form.Label>{curData.city}</Form.Label>
-                                        <Form.Control as={'select'}  name={'city'} selected={city}>
+                                        <Form.Control as={'select'}  name={'city'} selected={city} onChange={this.handelInputChanges}>
                                             {cities && cities.map((data,i) =>{
-                                                return <option key={i} value={data.id}>{data.name}</option>
+                                                return <option key={i} selected={data.id == city} value={data.id}>{data.name}</option>
                                             })}
                                         </Form.Control>
                                     </Col>
                                     <Col xs={12}  className={'d-flex text-center'}>
                                         <Form.Label>{curData.minPrice}</Form.Label>
-                                        <Form.Control value={minPrice} type={'number'} name={'minPrice'} placeholder={curData.minPrice} />
+                                        <Form.Control value={minPrice} type={'number'} name={'minPrice'} placeholder={curData.minPrice} onChange={this.handelInputChanges} />
                                     </Col>
                                     <Col xs={12}  className={'d-flex text-center'}>
                                         <Form.Label>{curData.maxPrice}</Form.Label>
-                                        <Form.Control value={maxPrice} type={'number'}  name={'maxPrice'} placeholder={curData.maxPrice}/>
+                                        <Form.Control value={maxPrice} type={'number'}  name={'maxPrice'} placeholder={curData.maxPrice} onChange={this.handelInputChanges}/>
                                     </Col>
                                     <Col xs={12}  className='d-flex text-center'>
                                         <Form.Label>{curData.numRoom}</Form.Label>
-                                        <Form.Control as={'select'} name={'numRoom'} selected={numRoom}>
+                                        <Form.Control as={'select'} name={'numRoom'} value={numRoom ? numRoom : 1} onChange={this.handelInputChanges}>
                                             {optionsNum}
                                         </Form.Control>
                                     </Col>
                                     <Col xs={12} className={'d-flex text-center'}>
                                         <Form.Label>{curData.numBath}</Form.Label>
-                                        <Form.Control as={'select'}  name={'numBath'} selected={numBath}>
+                                        <Form.Control as={'select'}  name={'numBath'} value={numBath ? numBath : 1}  onChange={this.handelInputChanges}>
                                             {optionsNum}
                                         </Form.Control>
                                     </Col>
                                     <Col xs={12} className={'d-flex text-center'}>
                                         <Form.Label>{curData.status}</Form.Label>
-                                        <Form.Control as={'select'}  name={'status'} >
+                                        <Form.Control as={'select'}  name={'status'} onChange={this.handelInputChanges}>
                                             {saleStatus && saleStatus.map((data,i) =>{
-                                                return <option key={i} selected={saleStatusVal == data} value={data}>{curData[data]}</option>
+                                                return <option key={i}  value={data}>{curData[data]}</option>
                                             })}
                                         </Form.Control>
                                     </Col>
                                     <Col xs={12} className={'d-flex text-center'}>
                                         <Form.Label>{curData.sqft}</Form.Label>
-                                        <Form.Control value={sqft} type={'text'}  name={'sqft'} placeholder={'Min Sqft'}  />
+                                        <Form.Control value={sqft} type={'text'}  name={'sqft'} placeholder={'Min Sqft'} onChange={this.handelInputChanges} />
                                     </Col>
                                     <Col xs={12} className={'text-center d-flex align-items-end'}>
                                         <Button  type={'submit'}>{curData.search}</Button>

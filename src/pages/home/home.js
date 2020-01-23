@@ -6,7 +6,6 @@ export default class Home extends React.Component{
         this.state = {}
     }
     componentDidMount() {
-       const res =  ApartmentsApi.get('page/1');
     }
 
     render() {

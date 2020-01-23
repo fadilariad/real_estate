@@ -1,7 +1,7 @@
 import React from "react";
 import LangContext,{AppLang} from "../../context/lang";
 import {Table} from "react-bootstrap";
-import {data} from "./data";
+import {data} from '../../locals/translate/data';
 
 
 class ApartmentDetailsTable extends React.Component{
