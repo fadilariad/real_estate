@@ -7,7 +7,7 @@ class Api {
     }
     async get(query){
         try {
-            const result = await axios.get(`${this.model}${query}`);
+            const result = await axios.get(`${this.model}${query && query}`);
             return (await result).data;
         }
         catch (e) {

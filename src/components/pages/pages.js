@@ -5,11 +5,12 @@ import {withRouter} from 'react-router-dom';
 
 class Pages extends React.Component{
     render() {
-            const {count,active} = this.props;
+        const {search} = this.props.location;
+        const {count,active} = this.props;
             const items = [];
             for (let number = 1; number <= count; number++) {
                 items.push(
-                    <Pagination.Item key={number} active={number === active} href={`/apartments/page/${number}`}>
+                    <Pagination.Item key={number} active={number === active} href={`/apartments/page/${number+search}`}>
                         {number}
                     </Pagination.Item>,
                 );
