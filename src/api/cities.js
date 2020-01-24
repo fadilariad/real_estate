@@ -4,4 +4,4 @@ class CitiesApi extends Api{
 
 }
 
-export default new CitiesApi('/cities/');
+export default new CitiesApi('/cities');

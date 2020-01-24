@@ -22,7 +22,11 @@ export const data = {
         "search":"Search",
         "images":'Images',
         "details":"Details",
-        "purchase":"Purchase"
+        "purchase":"Purchase",
+        "found" : "Found",
+        "advancedSearch":"Advanced Search",
+        "location":"Location",
+        "cancel":"Cancel"
     },
     "he":{
         "apartments":"דירות",
@@ -39,14 +43,19 @@ export const data = {
         "both":"השכרה / מכירה",
         "rent":"השכרה",
         "sale":"מכירה",
-        "minPrice":"מחיר החל מ",
-        "maxPrice":"מחיר עד",
+        "minPrice":" החל מ",
+        "maxPrice":" עד",
         "numRoom":"מספר חדרים",
         "numBath" : "מספר מקלחות",
         "city":"עיר",
         "search":"חיפוש",
         "images":'תמונות',
         "details":"פרטים",
-        "purchase":"רכישה"
+        "purchase":"רכישה",
+        "found": "נמצאו",
+        "advancedSearch":"חיפוש מתקדם",
+        "location":"מיקום",
+        "cancel":"ביטול"
+
     }
 };
