@@ -1,4 +1,5 @@
-export function translate(str) {
+export function translate(str,language) {
+    if (language === 'en') return str;
     let res = '';
     const string = str.toLowerCase();
     for (const char of string){
@@ -30,9 +31,9 @@ const letters = {
     "q": "ק",
     "r": "ר",
     "s": "ס",
-    "t": "ת",
+    "t": "ט",
     "u": "א",
-    "v": "וו",
+    "v": "ב",
     "w": "וו",
     "x": "אקס",
     "y": "יי",

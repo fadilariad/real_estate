@@ -5,6 +5,7 @@ import LangContext,{AppLang} from "../../context/lang";
 import {headerData} from "./links";
 import {data} from "../../locals/translate/data";
 import ChangeLang from "./changeLang";
+import {HouseFill} from 'react-bootstrap-icons';
 class HeaderNavBar extends React.Component{
     constructor(props) {
         super(props);
@@ -23,7 +24,7 @@ class HeaderNavBar extends React.Component{
                             <header style={style} id='header'>
                                 <Navbar expand="lg" className='border-bottom pb-0'>
                                     <Container>
-                                        <Navbar.Brand href="/">Logo</Navbar.Brand>
+                                        <Navbar.Brand href="/"><HouseFill color={'red'} size={'2em'}/></Navbar.Brand>
                                         <Navbar.Toggle aria-controls="header-nav-bar"/>
                                         <Navbar.Collapse id="header-nav-bar">
                                             <Nav className='align-items-stretch w-100'  activeKey={location.pathname}>

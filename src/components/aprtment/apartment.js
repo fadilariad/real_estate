@@ -32,8 +32,8 @@ class Apartment extends React.Component{
                                     </div>
                                     <Card.Body>
                                         <Card.Text as={'div'}>
-                                            <div className={'d-flex'}><div>{`${curData.city}:`}</div><div className={'ml-2 mr-2'} >{`${language === 'he'? city.hebrew_name.trim() :city.english_name}`}</div></div>
-                                            <div className={'d-flex'}><div>{`${curData.address}:`}</div><div className={'ml-2 mr-2'} >{language ==='he'? translate(address) : address}</div></div>
+                                            <div className={'d-flex'}><div>{`${curData.city}:`}</div><div className={'ml-2 mr-2'} >{city[language]}</div></div>
+                                            <div className={'d-flex'}><div>{`${curData.address}:`}</div><div className={'ml-2 mr-2'} >{translate(address,language)}</div></div>
                                             <div className={'d-flex'}><div>{`${curData.rooms}:`}</div><div className={'ml-2 mr-2'} >{rooms}</div></div>
                                             <div className={'d-flex'}><span>{`${curData.baths}:`}</span><span className={'ml-2 mr-2'} >{baths}</span></div>
                                         </Card.Text>
