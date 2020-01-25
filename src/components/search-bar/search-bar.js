@@ -17,10 +17,12 @@ class SearchBar extends React.Component{
                 numRoom:'',
                 numBath:'',
                 status:'',
-                sqft:''
+                sqft:'',
+                type: ''
             },
             saleStatus:'',
             cities:'',
+            apartmentsType:''
 
         }
     }
@@ -35,7 +37,8 @@ class SearchBar extends React.Component{
                 numRoom:+search.get('numRoom'),
                 numBath:+search.get('numBath'),
                 status:search.get('status'),
-                sqft:search.get('sqft')
+                sqft:search.get('sqft'),
+                type:search.get('type')
             }
         });
         ApartmentsApi.get('sale')
@@ -49,9 +52,12 @@ class SearchBar extends React.Component{
             this.setState({
                 cities:res
             })
-            }
-
-        );
+            });
+        ApartmentsApi.get('type').then(res => {
+            this.setState({
+                apartmentsType:res
+            })
+        })
     }
     handelInputChanges=(e)=>{
         const {name,value} = e.target;
@@ -65,8 +71,8 @@ class SearchBar extends React.Component{
 
     render() {
 
-        const {saleStatus,cities} = this.state;
-        const {city,minPrice,maxPrice,numRoom,numBath,sqft,status} = this.state.inputs;
+        const {saleStatus, cities, apartmentsType} = this.state;
+        const {city,minPrice,maxPrice,numRoom,numBath,sqft,status,type} = this.state.inputs;
         console.log(this.state.inputs)
         const optionsNum = [1,2,3,4,5].map((data,i) => {
             return <option key={i}  value={data}>{`${data}+`}</option>
@@ -85,6 +91,7 @@ class SearchBar extends React.Component{
                                         <h5>{curData.location}</h5>
                                         <Form.Label>{curData.city}</Form.Label>
                                         <Form.Control as={'select'}  name={'city'} value={city} onChange={this.handelInputChanges}>
+                                            <option value={""}>{curData.all}</option>
                                             {cities && cities.sort(function(a,b){
                                                 const nameA = language === 'he' ? a.hebrew_name.toLowerCase() : a.english_name.toLowerCase();
                                                 const nameB = language === 'he' ? b.hebrew_name.toLowerCase() : b.english_name.toLowerCase();
@@ -125,14 +132,23 @@ class SearchBar extends React.Component{
                                                     </Form.Control>
                                                 </div>
                                             </div>
-                                            <div className={'d-flex justify-content-between pt-1'}>
-                                                <div>
+                                            <div className={'d-flex justify-content-between pt-2'}>
+                                                <div className={'pr-3'}>
                                                     <Form.Label>{curData.sqft}</Form.Label>
                                                     <Form.Control value={sqft} type={'text'}  name={'sqft'} placeholder={'Min Sqft'} onChange={this.handelInputChanges} />
                                                 </div>
                                                 <div>
+                                                    <Form.Label>{curData.type}</Form.Label>
+                                                    <Form.Control as={'select'}  name={'type'} value={type} onChange={this.handelInputChanges}>
+                                                        <option value={''}>{curData.all}</option>
+                                                        {apartmentsType && apartmentsType.map((data,i) =>{
+                                                            return <option key={i}  value={data}>{curData[data]}</option>
+                                                        })}
+                                                    </Form.Control>
+                                                </div>
+                                                <div>
                                                     <Form.Label>{curData.status}</Form.Label>
-                                                    <Form.Control as={'select'}  name={'status'} onChange={this.handelInputChanges}>
+                                                    <Form.Control as={'select'}  name={'status'} value={status} onChange={this.handelInputChanges}>
                                                         {saleStatus && saleStatus.map((data,i) =>{
                                                             return <option key={i}  value={data}>{curData[data]}</option>
                                                         })}

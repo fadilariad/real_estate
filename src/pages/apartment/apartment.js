@@ -1,9 +1,10 @@
 import React from "react";
 import LangContext,{AppLang} from "../../context/lang";
-import {Carousel, Container, Tab, Tabs, Row,  Spinner} from "react-bootstrap";
+import {Carousel, Container, Tab, Tabs, Spinner, Row, Col} from "react-bootstrap";
 import ApartmentsApi from "../../api/apartments";
 import {data} from '../../locals/translate/data';
 import ApartmentDetailsTable from "../../components/aprtment/apartment-details";
+import {translate} from "../../locals/translate/translate";
 
 class ApartmentPage extends React.Component{
     constructor(props) {
@@ -27,16 +28,7 @@ class ApartmentPage extends React.Component{
     }
     render() {
         const {isLoading} = this.state;
-        const {
-            sale_status:title,
-            main_image:image,
-            number_of_room:rooms,
-            number_of_bath:baths,
-            address,
-            price,
-            sqft,
-            images
-        } = this.state.response;
+        const {images, user} = this.state.response;
 
         const tabStyle = {
             height: '500px',
@@ -57,10 +49,10 @@ class ApartmentPage extends React.Component{
                         const style = {direction:currentLang.dir};
                         const curData = data[language];
                         return (
-                            <Container   className={'mt-3 mb-3'}>
-                                {isLoading ? <Spinner animation="border" role="status" >
+                            <Container className={'mt-3 mb-3'}>
+                                {isLoading ? <div className={'d-flex justify-content-center'}><Spinner  animation="border" role="status" >
                                         <span className="sr-only">Loading...</span>
-                                    </Spinner> :
+                                    </Spinner> </div>:
                                     <Tabs style={style} defaultActiveKey={'images'} id={'uncontrolled'}>
 
                                         <Tab style={tabStyle} title={curData.images} eventKey={'images'}>
@@ -69,20 +61,16 @@ class ApartmentPage extends React.Component{
                                             </Carousel>
                                         </Tab>
                                         <Tab style={tabStyle} title={curData.details} eventKey={'Details'}>
-                                            <ApartmentDetailsTable {...{status:title,rooms,baths,price,sqft}}/>
-                                        </Tab>
-                                        <Tab style={tabStyle} title={curData.address} eventKey={'Address'}>
-                                            <Row className={'justify-content-center'}>
-                                                {/*<Col xs={"auto"}> <img height={300} src={city.image} alt={'/'}/> </Col>*/}
-                                                {/*<Col xs={"auto"}>*/}
-                                                {/*    {[`City: ${city.label}`,`Address: ${address}`,`Country: ${city.country}`,`Description: ${city.description}`].map((data,i) =>{*/}
-                                                {/*        return <div>{data}</div>*/}
-                                                {/*    })}*/}
-                                                {/*</Col>*/}
-                                            </Row>
+
+                                            <ApartmentDetailsTable {...this.state.response}/>
                                         </Tab>
                                         <Tab style={tabStyle} title={curData.purchase} eventKey={'Purchase'}>
-                                            <div></div>
+                                            <Row style={{...style,float:currentLang.float,width:'100%'}}>
+                                                <Col xs={12} className={'text-center'}><h1>{curData.agentDetails}</h1></Col>
+                                                <Col xs={12} className={'d-flex'}><div>{curData.name}:</div><div className={'ml-1 mr-1'}>{`${translate(user.first_name,language)}  ${translate(user.last_name,language)}`}</div></Col>
+                                                <Col xs={12} className={'d-flex'}><div>{curData.email}:</div><div className={'ml-1 mr-1'}>{user.email}</div> </Col>
+                                                <Col xs={12} className={'d-flex'}><div>{curData.phone}:</div><div className={'ml-1 mr-1'}>{user.phone}</div></Col>
+                                            </Row>
                                         </Tab>
                                     </Tabs> }
                             </Container>

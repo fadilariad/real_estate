@@ -9,12 +9,14 @@ export const AppLang = {
   en:{
       name:'English',
       label:'en',
-      dir:'ltr'
+      dir:'ltr',
+      float:'left'
   } ,
   he:{
       name:'עברית',
       label: 'he',
-      dir:'rtl'
+      dir:'rtl',
+      float: 'right'
   }
 };
 

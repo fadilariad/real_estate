@@ -18,7 +18,7 @@ export const data = {
         "maxPrice":"Max Price",
         "numRoom":"Number of rooms",
         "numBath" : "Number of baths",
-        "city":"city",
+        "city":"City",
         "search":"Search",
         "images":'Images',
         "details":"Details",
@@ -26,7 +26,18 @@ export const data = {
         "found" : "Found",
         "advancedSearch":"Advanced Search",
         "location":"Location",
-        "cancel":"Cancel"
+        "cancel":"Cancel",
+        "type" : "Type",
+        "uploadDate":"Upload Date",
+        "house":"House",
+        "ranch":"Ranch",
+        "condo":"Condo",
+        "land":"land",
+        "all":"All",
+        "agentDetails" : "Agent Details",
+        "name" : "Name",
+        "email": " E-mail",
+        "phone" : "Phone"
     },
     "he":{
         "apartments":"דירות",
@@ -55,7 +66,18 @@ export const data = {
         "found": "נמצאו",
         "advancedSearch":"חיפוש מתקדם",
         "location":"מיקום",
-        "cancel":"ביטול"
+        "cancel":"ביטול",
+        "type": "סוג",
+        "uploadDate":"תאריך העלאה",
+        "house":"בית",
+        "ranch":"חווה",
+        "condo":"דירה",
+        "land":"בית קרקע",
+        "all":"הכל",
+        "agentDetails" : "פרטי סוכן",
+        "name" : "שם",
+        "email": " E-mail",
+        "phone" : "מס' טלפון"
 
     }
 };
