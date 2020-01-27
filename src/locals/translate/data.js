@@ -37,7 +37,9 @@ export const data = {
         "agentDetails" : "Agent Details",
         "name" : "Name",
         "email": " E-mail",
-        "phone" : "Phone"
+        "phone" : "Phone",
+        "login" : "Log In",
+        "password" : "PassWord"
     },
     "he":{
         "apartments":"דירות",
@@ -76,8 +78,11 @@ export const data = {
         "all":"הכל",
         "agentDetails" : "פרטי סוכן",
         "name" : "שם",
-        "email": " E-mail",
-        "phone" : "מס' טלפון"
+        "email": "דואר אלקטרוני",
+        "phone" : "מס' טלפון",
+        "login" : "התחבר",
+        "password" : "סיסמה"
 
     }
 };
+

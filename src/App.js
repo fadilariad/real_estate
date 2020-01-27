@@ -10,19 +10,14 @@ class App extends React.Component{
         };
     }
 
-    changeLang = () => {
-      const language = localStorage.getItem('curLang');
-      if (!language || language === 'en') {
-          localStorage.setItem('curLang', 'he');
-      }else {
-          localStorage.setItem('curLang', 'en');
-      }
+    changeLang = (e) => {
+        localStorage.setItem('curLang',e.target.value);
       this.setState({changeLanguage:!this.state.changeLanguage})
     };
     render() {
         return (
 
-            <LangContext.Provider value={{language: (localStorage.getItem('curLang') || 'en'), changeLang: this.changeLang}}>
+            <LangContext.Provider value={{language: localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'en', changeLang: this.changeLang}}>
                 <Routes/>
             </LangContext.Provider>
 

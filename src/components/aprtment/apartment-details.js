@@ -9,7 +9,7 @@ class ApartmentDetailsTable extends React.Component{
 
     render() {
 
-        const {sale_status:status, main_image:image, number_of_room:rooms, number_of_bath:baths, address, price, sqft,city,property_type: type,created_on} = this.props;
+        const {sale_status:status,  number_of_room:rooms, number_of_bath:baths, address, price, sqft,city,property_type: type,created_on} = this.props;
         const date = new Date(created_on).toLocaleDateString();
         return (
             <LangContext.Consumer>

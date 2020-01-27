@@ -16,6 +16,7 @@ class HeaderNavBar extends React.Component{
             <LangContext.Consumer>
                 {
                     ({language}) => {
+                        console.log(language);
                         const currentLang = AppLang[language];
                         const {location} = this.props;
                         const style = {direction:currentLang.dir};

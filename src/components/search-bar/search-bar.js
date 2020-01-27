@@ -41,23 +41,24 @@ class SearchBar extends React.Component{
                 type:search.get('type')
             }
         });
-        ApartmentsApi.get('sale')
+        ApartmentsApi.getSaleValues()
             .then(res => {
                 this.setState({
                     saleStatus:res
                 })
             }
         );
+        ApartmentsApi.getTypeApartmentsValues().then(res => {
+            this.setState({
+                apartmentsType:res
+            })
+        })
         CitiesApi.get('').then(res => {
             this.setState({
                 cities:res
             })
             });
-        ApartmentsApi.get('type').then(res => {
-            this.setState({
-                apartmentsType:res
-            })
-        })
+
     }
     handelInputChanges=(e)=>{
         const {name,value} = e.target;
@@ -73,7 +74,6 @@ class SearchBar extends React.Component{
 
         const {saleStatus, cities, apartmentsType} = this.state;
         const {city,minPrice,maxPrice,numRoom,numBath,sqft,status,type} = this.state.inputs;
-        console.log(this.state.inputs)
         const optionsNum = [1,2,3,4,5].map((data,i) => {
             return <option key={i}  value={data}>{`${data}+`}</option>
         });
@@ -133,9 +133,9 @@ class SearchBar extends React.Component{
                                                 </div>
                                             </div>
                                             <div className={'d-flex justify-content-between pt-2'}>
-                                                <div className={'pr-3'}>
+                                                <div  className={'pr-3 col-4'}>
                                                     <Form.Label>{curData.sqft}</Form.Label>
-                                                    <Form.Control value={sqft} type={'text'}  name={'sqft'} placeholder={'Min Sqft'} onChange={this.handelInputChanges} />
+                                                    <Form.Control  value={sqft} type={'text'}  name={'sqft'} placeholder={'Min Sqft'} onChange={this.handelInputChanges} />
                                                 </div>
                                                 <div>
                                                     <Form.Label>{curData.type}</Form.Label>
