@@ -1,9 +1,9 @@
 export const data = {
     "en" : {
         "apartments":"Apartments",
-        "about us":"About us",
-        "sign in" : "Sign In",
-        "sign up":"Sign Up",
+        "aboutUs":"About us",
+        "signIn" : "Sign In",
+        "signUp":"Sign Up",
         "address":'Address',
         "rooms":'Rooms',
         "baths":'Baths',
@@ -39,13 +39,24 @@ export const data = {
         "email": " E-mail",
         "phone" : "Phone",
         "login" : "Log In",
-        "password" : "PassWord"
+        "password" : "PassWord",
+        "erroLog" : "Incorrect E-mail or Password",
+        "logOut" : "Log Out",
+        "hello" : "Hello",
+        "sale_status" : "Operation",
+        "pending":"Pending",
+        "approved" : "Approved",
+        "denied" : "Denied",
+        "removed" : "Removed",
+        "id" : "Id",
+        "view" : "View",
+        "edit" : "Edit"
     },
     "he":{
         "apartments":"דירות",
-        "about us":"מי אנחנו",
-        "sign in" : "התחבר",
-        "sign up":"הרשמה",
+        "aboutUs":"מי אנחנו",
+        "signIn" : "התחבר",
+        "signUp":"הרשמה",
         "address":'כתובת',
         "rooms":'חדרים',
         "baths":'מקלחות',
@@ -81,8 +92,18 @@ export const data = {
         "email": "דואר אלקטרוני",
         "phone" : "מס' טלפון",
         "login" : "התחבר",
-        "password" : "סיסמה"
-
+        "password" : "סיסמה",
+        "erroLog" : "שם משתמש או סיסמא שגוי",
+        "logOut" : "יציאה",
+        "hello" : "ברוך הבא",
+        "sale_status" : "פעולה",
+        "pending":"ממתין לאישור המנהל",
+        "approved" : "אושר",
+        "denied" : "נדחה",
+        "removed" : "נמחק",
+        "id" : "Id",
+        "view" : "הצג",
+        "edit" : "ערוך"
     }
 };
 

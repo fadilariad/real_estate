@@ -4,15 +4,12 @@ export  const headerData = [
         href:'/apartments/page/'
     },
     {
-        label:'about us',
+        label:'aboutUs',
         href:'/about-us'
     },
+
     {
-        label:'sign in',
-        href:'/sign-in'
-    },
-    {
-        label:'sign up',
+        label:'signUp',
         href:'/sign-up'
 
     }

@@ -3,9 +3,9 @@ import React from "react";
 const UserContext = React.createContext('guest');
 
 export const AppUser = {
-    guest:'guest',
-    agent:'agent',
-    admin:'admin'
+    name:'',
+    id:'',
+    type:''
 };
 
 export default UserContext;
