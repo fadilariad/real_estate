@@ -8,7 +8,7 @@ class Api {
     async get(query){
         try {
             const result = await axios.get(`${this.model}${query && query}`);
-            return (await result).data;
+            return result.data;
         }
         catch (e) {
             console.log(e);
@@ -16,11 +16,13 @@ class Api {
     }
     async post(path,params){
         try {
-            const result = await axios.post(this.model,params);
-            return result.data;
+            const result = await axios.post(this.model+path,params);
+            return result;
         }
         catch (e) {
-            console.log(e);
+            const result = {};
+            result.error = e;
+            return result;
         }
     }
     async put(path,params){
@@ -34,7 +36,7 @@ class Api {
     }
     async delete(path,id){
         try {
-            const result = await axios.delete(`${this.model}${id}`);
+            const result = await axios.delete(`${this.model}${path}`);
             return result
         }
         catch (e) {

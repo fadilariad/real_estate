@@ -1,0 +1,1 @@
+export const tableHeader = ['city','address','uploadDate','sale_status','status'];

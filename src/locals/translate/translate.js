@@ -1,5 +1,6 @@
 export function translate(str,language) {
-    if (language === 'en') return str;
+    if (!str) return
+    if (language === 'en') return  str[0].toUpperCase() + str.slice(1);
     let res = '';
     const string = str.toLowerCase();
     for (const char of string){

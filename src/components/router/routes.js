@@ -7,6 +7,7 @@ import AboutUs from "../../pages/about-us/about-us";
 import SignIn from "../../pages/sign-in/sign-in";
 import SignUp from "../../pages/sign-up/sign-up";
 import ApartmentPage from "../../pages/apartment/apartment";
+import UserPanel from "../../pages/user-panel/user-panel";
 
 
 class Routes extends React.Component{
@@ -23,6 +24,7 @@ class Routes extends React.Component{
                         <Route exact path="/about-us" component={AboutUs}/>
                         <Route exact path="/sign-in" component={SignIn}/>
                         <Route exact path="/sign-up" component={SignUp}/>
+                        <Route exact path="/users/:id" component={UserPanel}/>
                         <Route exact path="/" component={Home}/>
                     </Switch>
                 </React.Fragment>
