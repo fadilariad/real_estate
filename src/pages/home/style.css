@@ -1,0 +1,23 @@
+.main-image {
+    border-radius: 40px;
+}
+.multi-color-text {
+    background-image: linear-gradient(to left, violet, indigo, blue, red, green, black, red);
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: revert;
+    background-clip: text;
+    color: transparent;
+}
+.circles {
+    width: 150px;
+    height: 150px;
+}
+
+.font20px{
+    font-size: 20px;
+}
+
+.pointer{
+    cursor: pointer;
+}

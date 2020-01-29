@@ -52,7 +52,7 @@ class UserPanel extends React.Component{
                             <UserContext.Consumer>
                                 {
                                     ({user,logOut}) => {
-                                       const userLogOut = ()=> {
+                                        const userLogOut = ()=> {
                                             UsersApi.userLogOut().then(res => {
                                                 if (res) {
                                                     logOut();
@@ -90,9 +90,7 @@ class UserPanel extends React.Component{
                                                                         <td>
                                                                             <Button name={apartments[key].id} onClick={this.goApartment} variant={'link'}>{curData.view}</Button>
                                                                         </td>
-                                                                        <td>
-                                                                            <Button name={apartments[key].id} onClick={this.goApartment} variant={'link'}>{curData.edit}</Button>
-                                                                        </td>
+
                                                                     </tr>
                                                                 })}
                                                                 </tbody>

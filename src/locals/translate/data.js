@@ -50,11 +50,14 @@ export const data = {
         "removed" : "Removed",
         "id" : "Id",
         "view" : "View",
-        "edit" : "Edit"
+        "edit" : "Edit",
+        "homePageHeader":"The Home of Home Search",
+        "subSectionHome" : "Do you have a home you want to sell or rent? I will be happy to help",
+        "statisticsHeader" : "Whats happening in Israel"
     },
     "he":{
         "apartments":"דירות",
-        "aboutUs":"מי אנחנו",
+        "aboutUs":"אודות",
         "signIn" : "התחבר",
         "signUp":"הרשמה",
         "address":'כתובת',
@@ -103,7 +106,13 @@ export const data = {
         "removed" : "נמחק",
         "id" : "Id",
         "view" : "הצג",
-        "edit" : "ערוך"
+        "edit" : "ערוך",
+        "homePageHeader":"הבית לחיפוש בית",
+        "subSectionHome" : "יש לכם בית שאתם רוצים למכור או להשכיר? אשמח לעזור",
+        "statisticsHeader" : "מה קורה בישראל"
+
+
+
     }
 };
 
