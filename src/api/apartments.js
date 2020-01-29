@@ -7,6 +7,9 @@ class ApartmentsApi extends Api {
     getTypeApartmentsValues(){
         return this.get('type');
     }
+    getDataForHomePage(){
+        return this.get('statistics');
+    }
 }
 
 
