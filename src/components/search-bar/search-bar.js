@@ -40,7 +40,8 @@ class SearchBar extends React.Component{
                 sqft:search.get('sqft'),
                 type:search.get('type')
             }
-        });
+        }
+        );
         ApartmentsApi.getSaleValues()
             .then(res => {
                 this.setState({
@@ -52,7 +53,7 @@ class SearchBar extends React.Component{
             this.setState({
                 apartmentsType:res
             })
-        })
+        });
         CitiesApi.get('').then(res => {
             this.setState({
                 cities:res

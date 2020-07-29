@@ -6,11 +6,11 @@ export  const headerData = [
     {
         label:'aboutUs',
         href:'/about-us'
-    },
-
-    {
-        label:'signUp',
-        href:'/sign-up'
-
     }
+    //
+    // {
+    //     label:'signUp',
+    //     href:'/sign-up'
+    //
+    // }
 ];

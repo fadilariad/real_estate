@@ -36,7 +36,7 @@ class HeaderNavBar extends React.Component{
                                                         <Navbar.Collapse id="header-nav-bar">
                                                             <Nav className='align-items-stretch w-100'  activeKey={location.pathname}>
                                                                 {headerData.map((link,i) => {
-                                                                    return <Nav.Link  href={link.href} key={i}>{link.label != "signIn" ? curData[link.label] : user.name ? translate(user.name,language) : curData[link.label]}</Nav.Link>
+                                                                    return <Nav.Link  href={link.href} key={i}>{link.label !== "signIn" ? curData[link.label] : user.name ? translate(user.name,language) : curData[link.label]}</Nav.Link>
                                                                 })}
                                                                 <Nav.Link  href={user.name ? `/users/${user.id}`:'/sign-in'}>{user.name ? translate(user.name,language) : curData.signIn}</Nav.Link>
                                                             </Nav>

@@ -39,7 +39,7 @@ import {withRouter} from 'react-router-dom';
                             <div style={style}>
                                 <div  className={'text-center mt-2 mb-2'}><h2 className={'multi-color-text'}>{curData.homePageHeader}</h2></div>
                                 <Container>
-                                    <img className={'w-100 main-image'} height={500} src={MainImg}/>
+                                    <img className={'w-100 main-image'} height={500} src={MainImg} alt={'/'}/>
                                     <div className={'d-flex justify-content-around'}>
                                         {['house', 'ranch', 'condo', 'land'].map((type,i) => {
                                            const bg=['bg-success','bg-danger','bg-warning','bg-primary'];
@@ -56,10 +56,10 @@ import {withRouter} from 'react-router-dom';
                                     <h2 className={'mt-3 text-center text-success'}>{curData.statisticsHeader}</h2>
 
                                     {
-                                        statistics  && <div className={'d-flex justify-content-around'}>
+                                        statistics  && <div className={'d-flex justify-content-around border shadow mb-5'}>
                                             {
                                                 Object.keys(statistics).map((data,i) => {
-                                                    return <div key={i} className={'text-primary mt-3 pt-5 pb-5 text-center'}>
+                                                    return <div key={i} className={'text-primary mt-3 pt-3 pb-3 text-center '}>
                                                         <div><h5>{statistics[data]}</h5></div>
                                                         <div><h4>{curData[data]}</h4></div>
                                                     </div>

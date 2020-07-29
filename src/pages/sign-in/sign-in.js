@@ -1,7 +1,6 @@
 import React from "react";
 import LangContext, {AppLang} from "../../context/lang";
 import UserContext from "../../context/user";
-import {data} from "../../locals/translate/data";
 import LoginForm from "../../components/forms/login-form/login";
 import {Col, Row} from "react-bootstrap";
 
@@ -19,7 +18,6 @@ class SignIn extends React.Component{
                     ({language}) => {
                         const currentLang = AppLang[language];
                         const style = {direction:currentLang.dir};
-                        const curData = data[language];
                         return (
                             <UserContext.Consumer>
                                 {
