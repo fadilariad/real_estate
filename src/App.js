@@ -13,7 +13,7 @@ class App extends React.Component{
 
     changeLang = (e) => {
         localStorage.setItem('curLang',e.target.value);
-      this.setState({toggle:!this.state.toggle})
+        this.setState({toggle:!this.state.toggle})
     };
     loginUser = (id,name,type) =>{
         const realStateUser = {
@@ -31,10 +31,16 @@ class App extends React.Component{
     render() {
         return (
 
-            <LangContext.Provider value={{language: localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'en', changeLang: this.changeLang}}>
-                <UserContext.Provider value={{user:localStorage.getItem('realStateUser') ? JSON.parse(localStorage.getItem('realStateUser')) : '',
-                    loginUser:this.loginUser,
-                    logOut:this.logOutUser} }>
+            <LangContext.Provider value={
+                {
+                    language: localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'en',
+                    changeLang: this.changeLang
+                }}>
+                <UserContext.Provider value={
+                    {
+                        user:localStorage.getItem('realStateUser') ? JSON.parse(localStorage.getItem('realStateUser')) : '',
+                        loginUser:this.loginUser,
+                        logOut:this.logOutUser} }>
                     <Routes/>
                 </UserContext.Provider>
             </LangContext.Provider>

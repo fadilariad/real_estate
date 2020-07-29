@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import LangContext,{AppLang} from "../../context/lang";
 import UserContext from "../../context/user";
 import UsersApi from '../../api/users';
-import {Button, ButtonGroup, Container, Table} from "react-bootstrap";
+import {Button, Container, Table} from "react-bootstrap";
 import {data} from "../../locals/translate/data";
 import {translate} from "../../locals/translate/translate";
 import {tableHeader} from "./tools";
@@ -81,7 +81,7 @@ class UserPanel extends React.Component{
                                                                 </thead>
                                                                 <tbody>
                                                                 {Object.keys(apartments).map((key,i) => {
-                                                                    return <tr>
+                                                                    return <tr key={i}>
                                                                         <td>{apartments[key].city[language]}</td>
                                                                         <td>{translate(apartments[key].address,language)}</td>
                                                                         <td>{new Date(apartments[key].created_on).toLocaleDateString()}</td>

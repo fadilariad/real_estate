@@ -10,7 +10,7 @@ export const data = {
         "more details":'More Details',
         "sqft":'Sqft',
         "status":'Status',
-        "price":'price',
+        "price":'Price',
         "both":"Sale / Rent",
         "rent":"Rent",
         "sale":"Sale",
@@ -53,7 +53,8 @@ export const data = {
         "edit" : "Edit",
         "homePageHeader":"The Home of Home Search",
         "subSectionHome" : "Do you have a home you want to sell or rent? I will be happy to help",
-        "statisticsHeader" : "Whats happening in Israel"
+        "statisticsHeader" : "Whats happening in Israel",
+        "aboutUsText":"realEstate.com Is the leading real estate site in Israel that offers a board with a selection of apartments and houses for sale and rent, lots and more. For the avoidance of doubt, the copyright and property of the property belong to the property owners. It is hereby clarified that the Website constitutes a publicity platform for users / users and the Company is not responsible in any way for the third party services and property prices. The site may remove or edit any advertising on the site if it finds that this publication violates the Terms of Service. Use of the Website, for all its services, is solely your responsibility"
     },
     "he":{
         "apartments":"דירות",
@@ -109,7 +110,11 @@ export const data = {
         "edit" : "ערוך",
         "homePageHeader":"הבית לחיפוש בית",
         "subSectionHome" : "יש לכם בית שאתם רוצים למכור או להשכיר? אשמח לעזור",
-        "statisticsHeader" : "מה קורה בישראל"
+        "statisticsHeader" : "מה קורה בישראל",
+        "aboutUsText":"האתר הינו אתר הנדל״ן המוביל בישראל המציע לוח עם מבחר דירות ובתים למכירה ולהשכרה, מגרשים ועוד. \n" +
+            "למען הסר ספק, זכויות היוצרים והקניין של הנכסים, שייכים לבעלי הדירות.\n" +
+            "מובהר בזאת, כי האתר מהווה פלטפורמת פרסום לגולשים/משתמשים והחברה אינה אחראית בכל צורה שהיא לשירותי הצד השלישי ומחירי הנכסים. האתר רשא להסיר או לערוך כל פרסום באתר במידה וימצא כי פרסום זה מפר את תנאי התקנון.\n" +
+            "השימוש באתר, על כל מגוון שירותיו הינו באחריותך בלבד"
 
 
 
